@@ -23,3 +23,6 @@ spec:
                 name: blog-service
                 port:
                   number: 80
+
+
+                  

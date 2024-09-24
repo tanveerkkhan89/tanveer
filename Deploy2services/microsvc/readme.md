@@ -33,3 +33,7 @@ helm install microservices ./microsvc -n course
 
 if any changes done:
 helm upgrade microservices ./microsvc -n course
+
+
+http://jtechie.com/course/allCourses
+http://jtechie.com/blog/allBlogs
