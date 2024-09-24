@@ -1,0 +1,46 @@
+# Blog Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+  labels:
+    app: blog
+spec:
+  replicas: {{ .Values.blog.replicaCount }}
+  selector:
+    matchLabels:
+      app: blog
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+      - name: blog
+        image: "{{ .Values.blog.image.repository }}:{{ .Values.blog.image.tag }}"
+        ports:
+        - containerPort: 8080
+
+---
+# AllCourse Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: allcourse
+  labels:
+    app: allcourse
+spec:
+  replicas: {{ .Values.allcourse.replicaCount }}
+  selector:
+    matchLabels:
+      app: allcourse
+  template:
+    metadata:
+      labels:
+        app: allcourse
+    spec:
+      containers:
+      - name: allcourse
+        image: "{{ .Values.allcourse.image.repository }}:{{ .Values.allcourse.image.tag }}"
+        ports:
+        - containerPort: 8080

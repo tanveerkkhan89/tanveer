@@ -1,0 +1,25 @@
+blog:
+  image:
+    repository: khatanve/blog-service
+    tag: latest
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+
+allcourse:
+  image:
+    repository: khatanve/course-service
+    tag: latest
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+
+ingress:
+  enabled: true
+  hosts:
+    - host: blog.local
+      paths: ["/"]
+    - host: allcourse.local
+      paths: ["/"]
